@@ -37,11 +37,11 @@ public class Test {
 		
 		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
 		//1.构造方法设置值
-		
-		//2.设置 注入(通过set方法)
 		People bean = ac.getBean("peo",People.class);
 		System.out.println(bean);
 		System.out.println("-----------------------------------");
+		
+		//2.设置 注入(通过set方法)
 		
 		People bean1 = ac.getBean("peo1",People.class);
 		System.out.println(bean1);
