@@ -6,13 +6,29 @@
 http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<!-- 设值 注入(通过构造方法) 第一种方式 -->
+	<bean id="people" class="com.pojo.People">
+		<constructor-arg index="0" value="1"></constructor-arg>
+		<constructor-arg index="1" value="张三"></constructor-arg>
+		<constructor-arg index="2" value="33"></constructor-arg>
+	</bean>
+	<bean id="people1" class="com.pojo.People">
+		<constructor-arg name="id" value="2"></constructor-arg>
+		<constructor-arg name="name" value="李四"></constructor-arg>
+		<constructor-arg name="age" value="35"></constructor-arg>
+	</bean>
+	<!-- 这样来指定顺序，不然构造方法重载时，会从构造方法最后一个开始寻找，不去看参数的顺序 -->
+	<bean id="people2" class="com.pojo.People">
+		<constructor-arg index="0" name="id" value="2"></constructor-arg>
+		<constructor-arg index="1" name="name" value="李四"></constructor-arg>
+		<constructor-arg index="2" name="age" value="36"></constructor-arg>
+	</bean>
+	
+	<!-- 设值 注入(通过set方法) 第二种方式 -->
 	<bean id="peo" class="com.pojo.People">
 		<property name="id" value="222"></property>
 		<property name="name" value="张三"></property>
 		<property name="age" value="32"></property>
 	</bean>
-
-	<!-- 设值 注入(通过set方法) 第二种方式 -->
 	<bean id="peo1" class="com.pojo.People">
 		<property name="id">
 			<value>123</value>
